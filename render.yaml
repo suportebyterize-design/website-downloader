@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: website-downloader
+    runtime: docker
+    plan: free
+    envVars:
+      - key: DOWNLOAD_QUOTA
+        value: "100m"
+      - key: DOWNLOAD_TIMEOUT_MS
+        value: "300000"
