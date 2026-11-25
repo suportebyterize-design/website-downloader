@@ -5,6 +5,6 @@ services:
     plan: free
     envVars:
       - key: DOWNLOAD_QUOTA
-        value: "100m"
+        value: "500m"
       - key: DOWNLOAD_TIMEOUT_MS
-        value: "300000"
+        value: "600000"

@@ -30,7 +30,7 @@ module.exports = (sourceDir, zipName, callback) => {
   var zipPath = path.join(SITES_DIR, zipName + '.zip');
   var output = fs.createWriteStream(zipPath);
   var archive = archiver('zip', {
-    zlib: { level: 9 } // Sets the compression level.
+    zlib: { level: 1 } // Fast compression to avoid CPU bottlenecks on small containers.
   });
 
   // listen for all archive data to be written

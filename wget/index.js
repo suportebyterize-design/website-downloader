@@ -13,8 +13,8 @@ var DOWNLOAD_ROOT = path.join(__dirname, '..', 'downloads');
 
 // wget mirrors recursively, so without a ceiling a single request can fill the
 // disk. Both limits can be raised through the environment.
-var QUOTA = process.env.DOWNLOAD_QUOTA || '100m';
-var TIMEOUT_MS = Number(process.env.DOWNLOAD_TIMEOUT_MS) || 5 * 60 * 1000;
+var QUOTA = process.env.DOWNLOAD_QUOTA || '500m';
+var TIMEOUT_MS = Number(process.env.DOWNLOAD_TIMEOUT_MS) || 10 * 60 * 1000;
 
 /**
  * wget --mirror --convert-links --adjust-extension --page-requisites
@@ -51,6 +51,7 @@ module.exports = (socket, data, onFinished) => {
   var child = execFile('wget', [
     '-mkEpnp',
     '--no-if-modified-since',
+    '--restrict-file-names=windows',
     '--quota=' + QUOTA,
     target.href
   ], { cwd: jobDir, maxBuffer: 32 * 1024 * 1024 });
