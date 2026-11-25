@@ -52,6 +52,9 @@ module.exports = (socket, data, onFinished) => {
     '-mkEpnp',
     '--no-if-modified-since',
     '--restrict-file-names=windows',
+    '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    '--timeout=25',
+    '--tries=2',
     '--quota=' + QUOTA,
     target.href
   ], { cwd: jobDir, maxBuffer: 32 * 1024 * 1024 });
